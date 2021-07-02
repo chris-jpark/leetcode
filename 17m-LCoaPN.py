@@ -2,8 +2,8 @@ class Solution:
     def letterCombinations(self, digits: str) -> list[str]:
         options = []
         combos = []
-        crypto = ''
-        joseph = []
+        temp = ''
+        candidate = []
         if not digits: 
             return combos
         
@@ -13,29 +13,29 @@ class Solution:
             options.append(numletter[int(digits[i])-2])
         
         for item in options:
-            crypto = crypto + str(len(item)-1)
-            joseph.append('0')
+            tmep = temp + str(len(item)-1)
+            candidate.append('0')
         
         
-        while int(''.join(joseph)) < int(crypto):
+        while int(''.join(candidate)) < int(temp):
             combi = ''
             for i in range(len(options)):
-                combi = combi + str(options[i][int(joseph[i])])
+                combi = combi + str(options[i][int(candidate[i])])
 
             combos.append(combi)
             
             for i in reversed(range(len(options))):
-                if int(joseph[i]) < len(options[i])-1: 
-                    joseph[i] = str(int(joseph[i])+1)
+                if int(candidate[i]) < len(options[i])-1: 
+                    candidate[i] = str(int(candidate[i])+1)
                     if i < len(options)-1:
                         for j in reversed(range(i+1,len(options))):
-                            if int(joseph[j]) >= len(options[j])-1: 
-                                joseph[j] = '0'
+                            if int(candidate[j]) >= len(options[j])-1: 
+                                candidate[j] = '0'
                     break
                     
         combi = ''
         for i in range(len(options)):
-            combi = combi + str(options[i][int(crypto[i])])
+            combi = combi + str(options[i][int(temp[i])])
 
         combos.append(combi) 
         
