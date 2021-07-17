@@ -24,9 +24,10 @@ class Solution:
         return outlist
         
         return outlist
+
+#TESTCASE - make 2 linked lists
 list1 = ListNode(1)
 list1.next = ListNode(2)
-
 list2 = ListNode(2)
 list2.next = ListNode(9)
 # curr = list1
@@ -36,10 +37,6 @@ list2.next = ListNode(9)
 
 test = Solution()
 joe = test.addTwoNumbers(list1, list2)
-
-while joe != None:
-    print("The value is: ",joe.val)
-    joe = joe.next
 
 
 
